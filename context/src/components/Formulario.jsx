@@ -1,26 +1,62 @@
-import React from 'react';
+import { MARCAS, YEARS, PLANES } from "../constants";
+
 
 const Formulario = () => {
-    return (
-        <div>
-            <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"/>
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+  return (
+    <div>
+      <form>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">
+            Marca
+          </label>
+          <select id="disabledSelect" class="form-select">
+            <option> ---seleccione Marca--- </option>
+
+            {MARCAS.map((marca) => (
+              <option key={marca.id} value={marca.id}>
+                {marca.nombre}
+              </option>
+            ))}
+          </select>
         </div>
-    );
+        
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">
+            Año
+          </label>
+          <select id="disabledSelect" class="form-select">
+            <option> ---Año--- </option>
+
+            {YEARS.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">
+            PLANES
+          </label>
+          <select id="disabledSelect" class="form-select">
+            <option> ---Seleccione Plan--- </option>
+
+            {PLANES.map((plan) => (
+              <option key={plan.id} value={plan.id}>
+                {plan.nombre}
+              </option>
+            ))}
+          </select>
+        </div>
+        
+
+        <button type="submit" class="btn btn-primary">
+          Cotizar
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default Formulario;
